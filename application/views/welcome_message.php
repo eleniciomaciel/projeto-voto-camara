@@ -65,11 +65,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 									</div>
 
-									<div class="d-flex mb-5 align-items-center">
+									<!-- <div class="d-flex mb-5 align-items-center">
 										<span class="ml-auto">
 											<a href="<?= site_url('painel-master') ?>" class="forgot-pass">Esqueci minha senha?</a>
 										</span>
-									</div>
+									</div> -->
 
 									<button class="btn btn-pill text-white btn-block btn-primary" type="submit">
 										<span id="logText"></span>
