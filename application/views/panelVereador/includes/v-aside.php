@@ -1,5 +1,5 @@
  <!-- Brand Logo -->
- <a href="index3.html" class="brand-link">
+ <a href="#" class="brand-link">
      <img src="<?= base_url() ?>assets/admin/dist/img/logo1.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
      <span class="brand-text font-weight-light">Sistemas</span>
  </a>
@@ -44,15 +44,15 @@
                      </p>
                  </a>
              </li>
-             <!-- <li class="nav-item">
+             <li class="nav-item">
                  <a href="pages/widgets.html" class="nav-link">
-                     <i class="nav-icon fas fa-th"></i>
+                     <i class="nav-icon fas fa-user"></i>
                      <p>
-                         Históricos
-                         <span class="right badge badge-danger">Novo</span>
+                         Perfíl
+                         <span class="right badge badge-danger">Visualizar</span>
                      </p>
                  </a>
-             </li> -->
+             </li>
 
              <li class="nav-item">
                  <a href="<?= site_url('logout'); ?>" class="nav-link">

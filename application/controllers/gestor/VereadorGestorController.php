@@ -18,7 +18,7 @@ class VereadorGestorController extends CI_Controller
         $this->load->library('form_validation');
         $this->form_validation->set_rules('gestor_v_name', 'NOME', 'required|is_unique[tbl_usuarios.us_nome]|max_length[100]|min_length[3]');
         $this->form_validation->set_rules('gestor_v_apelido', 'APELIDO', 'required|is_unique[tbl_usuarios.us_apelido]|max_length[50]|min_length[3]');
-        $this->form_validation->set_rules('gestor_v_partido', 'PARTIDO', 'required|max_length[10]|min_length[2]');
+        $this->form_validation->set_rules('gestor_v_partido', 'PARTIDO', 'required|max_length[20]|min_length[2]');
         $this->form_validation->set_rules('gestor_v_cargo', 'CARGO', 'required|max_length[60]|min_length[3]');
         $this->form_validation->set_rules('gestor_v_login', 'LOGIN', 'required|valid_email|is_unique[tbl_usuarios.us_email]');
         $this->form_validation->set_rules(
@@ -73,7 +73,7 @@ class VereadorGestorController extends CI_Controller
                         <a href="#" class="clsAddFileVereador dropdown-item" id="'.$r->us_id.'"><i class="fa fa-camera"></i>&nbsp;Foto</a>
                         <a href="#" class="clsStatusAcessoVereador dropdown-item" id="'.$r->us_id.'"><i class="fa fa-user-lock"></i>&nbsp;Acesso</a>
                     <div class="dropdown-divider"></div>
-                        <a href="#" class="clsTrashVereador dropdown-item" id="'.$r->us_id.'"><i class="fa fa-user-times"></i>&nbsp;Deletar</a>
+                        <a href="#" class="clsTrashVereador dropdown-item" id="'.$r->us_id.'"><i class="fa fa-user-times"></i>&nbsp;Desativar</a>
                     </div>
                 </div>'
             );
@@ -90,6 +90,46 @@ class VereadorGestorController extends CI_Controller
         exit();
     }
 
+     /**lista usuários vereador */
+     public function get_listVereadoresInstituicaoDesativados(int $id)
+     {
+         $draw = intval($this->input->get("draw"));
+         $start = intval($this->input->get("start"));
+         $length = intval($this->input->get("length"));
+ 
+         $query =  $this->db->get_where('tbl_usuarios', array('us_fk_instituicao' => $id, 'us_nivel'=> 'Vereador','us_visible_user'=>'0'));
+         $data = [];
+ 
+         foreach ($query->result() as $r) {
+             $data[] = array(
+                 $r->us_nome,
+                 $r->us_my_profile == "" ? 'Sem foto':'<img src="' . base_url() . 'assets/admin/upload/' . $r->us_my_profile . '"  class="img-thumbnail" width="50" height="35" />',
+                 $r->us_cargo,
+                 $r->us_partido,
+                 $r->us_visible_user == '0' ? '<a href="#" class="badge badge-danger">Acesso negado</a>' : '<a href="#" class="badge badge-success">Acesso ativo</a>',
+                 '<div class="btn-group">
+                     <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                     Ações
+                     </button>
+                     <div class="dropdown-menu">
+                         <a href="#" class="clsAtivaVereador dropdown-item" id="'.$r->us_id.'"><i class="fa fa-user-lock"></i>&nbsp;Ativar</a>
+                     <div class="dropdown-divider"></div>
+                         <a href="#" class="clsDeleteFinalVereador dropdown-item" id="'.$r->us_id.'"><i class="fa fa-user-times"></i>&nbsp;Deletar</a>
+                     </div>
+                 </div>'
+             );
+         }
+ 
+         $result = array(
+             "draw" => $draw,
+             "recordsTotal" => $query->num_rows(),
+             "recordsFiltered" => $query->num_rows(),
+             "data" => $data
+         );
+ 
+         echo json_encode($result);
+         exit();
+     }
     /**lista dados do vereeador */
     public function get_listDadosVer(int $id)
     {
@@ -350,12 +390,32 @@ class VereadorGestorController extends CI_Controller
         }
     }
 
+    /**deleta hide vereador */
     public function delete_vereador(int $id)
     {
         $data = array(
             'us_visible_user' => '0',
+            'us_status' => '0',
         );
         $this->db->update('tbl_usuarios', $data, array('us_id ' => $id));
+        echo 'Vereador deletado com sucesso';
+    }
+
+    /**adiva desativado */
+    public function activeVereador(int $id)
+    {
+        $data = array(
+            'us_visible_user' => '1',
+            'us_status' => '1',
+        );
+        $this->db->update('tbl_usuarios', $data, array('us_id ' => $id));
+        echo 'Vereador Ativado com sucesso';
+    }
+
+    /**adiva desativado */
+    public function deletaPermanenteVereador(int $id)
+    {
+        $data = $this->db->delete('tbl_usuarios', array('us_id ' => $id));
         echo 'Vereador deletado com sucesso';
     }
 }

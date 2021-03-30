@@ -15,6 +15,17 @@
             },
         });
 
+        /**vereadores desativados */
+        var dataTablevereadoresdesativos = $('#lista_vereadores_instituicao_desativados').DataTable({
+            "language": { //Altera o idioma do DataTable para o português do Brasil
+                "url": "//cdn.datatables.net/plug-ins/1.10.12/i18n/Portuguese-Brasil.json"
+            },
+            "ajax": {
+                url: "<?= site_url('lista-vereadores-instituicao_desativos/') ?>" + idMyUser,
+                type: 'GET'
+            },
+        });
+
         /**adiciona dados do verador */
         $('#formAdicionaVereador').on('submit', function(event) {
             event.preventDefault();
@@ -333,6 +344,7 @@
                         $('.btn__ver_cls_status').html('<i class="fa fa-sync-alt"></i> Alterar');
                         $("#btn__ver_id_status").attr("disabled", false);
                         dataTablevereadores.ajax.reload();
+                        dataTablevereadoresdesativos.ajax.reload();
                     } else {
                         $(".print-error-msg").css('display', 'block');
                         $(".print-error-msg").html(data.error);
@@ -349,13 +361,13 @@
             var user_id = $(this).attr("id");
 
             Swal.fire({
-                title: 'Deletar vereador?',
-                text: "Deseja deletar o verador!",
+                title: 'Desativar vereador?',
+                text: "Deseja desativar o verador!",
                 icon: 'error',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
-                confirmButtonText: 'Sim, deletetar!',
+                confirmButtonText: 'Sim, desativar!',
                 cancelButtonText: 'Não',
             }).then((result) => {
                 if (result.isConfirmed) {
@@ -371,12 +383,92 @@
                                 'success'
                             )
                             dataTablevereadores.ajax.reload();
+                            dataTablevereadoresdesativos.ajax.reload();
                             listaInstituicaollSelect(idMyUser);
                         }
                     });
                 }
             });
         });
+
+
+
+
+        /**ativa reveador */
+        $(document).on('click', '.clsAtivaVereador', function() {
+            var id_acctive = $(this).attr("id");
+
+            Swal.fire({
+                title: 'Deseja Ativa?',
+                text: "Confirmar ativação do vereador!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Sim, ativar!'
+            }).then((result) => {
+
+                if (result.isConfirmed) {
+
+                    $.ajax({
+                        url: "<?php echo base_url(); ?>gestor/VereadorGestorController/activeVereador/" + id_acctive,
+                        method: "GET",
+                        data: {
+                            id_acctive: id_acctive
+                        },
+                        success: function(data) {
+
+                            Swal.fire(
+                                'OK!',
+                                data,
+                                'success'
+                            )
+                            dataTablevereadores.ajax.reload();
+                            dataTablevereadoresdesativos.ajax.reload();
+                        }
+                    });
+                }
+            });
+        });
+
+        //deleta final vereador
+        $(document).on('click', '.clsDeleteFinalVereador', function() {
+            var id_new_del = $(this).attr("id");
+
+            Swal.fire({
+                title: 'Deseja deletar?',
+                text: "Ao confirmar essa ação será permanente!",
+                icon: 'error',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Sim, deletar!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+
+                    $.ajax({
+                        url: "<?php echo base_url(); ?>gestor/VereadorGestorController/deletaPermanenteVereador/" + id_new_del,
+                        method: "GET",
+                        success: function(data) {
+                            Swal.fire(
+                                'OK!',
+                                data,
+                                'success'
+                            )
+                            dataTablevereadoresdesativos.ajax.reload();                            
+                        }, error: function(){
+                            Swal.fire(
+                                'Ops!',
+                                'Algo deu errado, verificamos que esse usuário já se encontra lotados em processos de votos e por esse motivo não moderá ser deletado permanentemente de forma automática. Procure o suporte C8 Technology para solicitar o processo por gentileza.',
+                                'error'
+                            )
+                        }
+                    });
+                }
+            })
+        });
+
+
     });
 </script>
 

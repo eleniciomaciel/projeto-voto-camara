@@ -304,7 +304,7 @@ class TvController extends CI_Controller
                         
                         $output .= '
                         <div class="card-body" style="display: block;">
-                            <div class="card card-danger shadow-lg" style="transition: all 0.15s ease 0s; height: inherit; width: inherit;">
+                            <div class="card card-success shadow-lg" style="transition: all 0.15s ease 0s; height: inherit; width: inherit;">
                                 <div class="card-header">
                                     
                                     <h1 class="text-center">APROVADO</h1>
@@ -346,7 +346,7 @@ class TvController extends CI_Controller
                         
                         $output .= '
                         <div class="card-body" style="display: block;">
-                            <div class="card card-danger shadow-lg" style="transition: all 0.15s ease 0s; height: inherit; width: inherit;">
+                            <div class="card card-warning shadow-lg" style="transition: all 0.15s ease 0s; height: inherit; width: inherit;">
                                 <div class="card-header">
                                     
                                     <h1 class="text-center">EMPATE</h1>
@@ -448,7 +448,7 @@ class TvController extends CI_Controller
         $data = array(
             'vt_time_voto' => $valor2,
             'vt_liberar_voto' => $valor,
-            'vt_tipo_status' => '0'
+            'vt_tipo_status' => '1'
         );
     
         $this->db->update('tbl_voto_projeto_sessao', $data, array('vt_fk_projeto' => $id));

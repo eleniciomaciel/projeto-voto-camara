@@ -46,9 +46,9 @@ class VereadorGestor_model  extends CI_Model {
     public function alterastatusVereadorAcesso($id)
     {
         $data = array(
-            'us_status'           =>  $this->input->post('gestor_vr_status', TRUE),
+            'us_status' =>  $this->input->post('gestor_vr_status', TRUE),
         );
-        return $this->db->update('tbl_usuarios', $data, array('us_id' => $id));
+        $this->db->update('tbl_usuarios', $data, array('us_id' => $id));
     }
 }
 

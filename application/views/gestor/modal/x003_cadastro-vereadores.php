@@ -11,39 +11,82 @@
             <div class="modal-body">
 
 
-                <!-- list project -->
-                <div class="card">
-                    <div class="card-header">
-                        <button type="button" class="btn btn-info btn-flat" data-toggle="modal" data-target="#modalRegisterAddVereadorSecretary"><i class="fa fa-plus"></i> Cadastrar</button>
-                        <div class="card-tools">
-                            <div class="input-group input-group-sm">
-                                <h3 class="card-title">Vereadores cadastrados</h3>
+
+                <div class="col-12">
+                    <!-- Custom Tabs -->
+                    <div class="card">
+                        <div class="card-header d-flex p-0">
+                            <h3 class="card-title p-3">Vereadores cadastrados</h3>
+                            <ul class="nav nav-pills ml-auto p-2">
+                                <li class="nav-item"><a class="nav-link active" href="#tab_1" data-toggle="tab"><i class="fas fa-user-check"></i> Vereadores ativos</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#tab_2" data-toggle="tab"><i class="fas fa-user-lock"></i> Vereadores desativados</a></li>
+                            </ul>
+                        </div><!-- /.card-header -->
+                        <div class="card-body">
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="tab_1">
+
+                                    <!-- list project -->
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <button type="button" class="btn btn-info btn-flat" data-toggle="modal" data-target="#modalRegisterAddVereadorSecretary"><i class="fa fa-plus"></i> Cadastrar</button>
+
+                                            <!-- /.card-tools -->
+                                        </div>
+                                        <!-- /.lista cadastro-vereadores -->
+                                        <div class="table table-responsive card-body p-0">
+                                            <table class="table table-striped" id="lista_vereadores_instituicao" style="width:100%;">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Nome</th>
+                                                        <th>Foto</th>
+                                                        <th>Cargo</th>
+                                                        <th>Partido</th>
+                                                        <th>Status</th>
+                                                        <th>Opções</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+
+                                    </div>
+                                    <!-- fim list project -->
+
+
+                                </div>
+                                <!-- /.tab-pane -->
+                                <div class="tab-pane table table-responsive" id="tab_2">
+
+
+                                    <table class="table table-dark" id="lista_vereadores_instituicao_desativados" style="width: 100%;">
+                                        <thead>
+                                            <tr>
+                                                <th>Nome</th>
+                                                <th>Foto</th>
+                                                <th>Cargo</th>
+                                                <th>Partido</th>
+                                                <th>Status</th>
+                                                <th>Ação</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        </tbody>
+                                    </table>
+
+
+
+                                </div>
+
+                                <!-- /.tab-pane -->
                             </div>
-                        </div>
-                        <!-- /.card-tools -->
+                            <!-- /.tab-content -->
+                        </div><!-- /.card-body -->
                     </div>
-                    <!-- /.card-header -->
-                    <div class="table table-responsive card-body p-0">
-                        <table class="table table-striped" id="lista_vereadores_instituicao" style="width:100%;">
-                            <thead>
-                                <tr>
-                                    <th>Nome</th>
-                                    <th>Foto</th>
-                                    <th>Cargo</th>
-                                    <th>Partido</th>
-                                    <th>Status</th>
-                                    <th>Opções</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-
-                            </tbody>
-                        </table>
-                    </div>
-
+                    <!-- ./card -->
                 </div>
-                <!-- fim list project -->
-
 
             </div>
             <div class="modal-footer">

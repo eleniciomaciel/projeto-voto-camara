@@ -5,10 +5,13 @@
 
         listaVeradoresVotanteIndividualVotoDia(id = null);
         listaVeradoresVotanteGrupoVotoDia(id = null);
-        carregaTotalProjetos(idMyGestorInstituicao);
-        carregaTotalVereadoresPresents(idMyGestorInstituicao);
-        carregaTotalFaltantes(idMyGestorInstituicao);
+        
 
+        setInterval(function() {
+            carregaTotalProjetos(idMyGestorInstituicao);
+            carregaTotalVereadoresPresents(idMyGestorInstituicao);
+            carregaTotalFaltantes(idMyGestorInstituicao);
+        }, 3000);
 
 
         var dataTableprojetos = $('#lista_projetos_instituicao').DataTable({

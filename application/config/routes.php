@@ -33,6 +33,7 @@ $route['select-vereador-do-projeto/(:num)'] = 'gestor/ProjetoGestorController/se
 $route['add-session-gestor'] = 'gestor/ProjetoGestorController/insertSession';
 $route['adiciona-verador'] = 'gestor/VereadorGestorController/addVerador';
 $route['lista-vereadores-instituicao/(:num)'] = 'gestor/VereadorGestorController/get_listVereadoresInstituicao/$1';
+$route['lista-vereadores-instituicao_desativos/(:num)'] = 'gestor/VereadorGestorController/get_listVereadoresInstituicaoDesativados/$1';
 $route['lista-dados-verador/(:any)'] = 'gestor/VereadorGestorController/get_listDadosVer/$1';
 $route['altera-verador'] = 'gestor/VereadorGestorController/alteraDadosDoVerador';
 $route['inserir-imagem-vereador'] = 'gestor/VereadorGestorController/newFileVereador';
