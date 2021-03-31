@@ -42,7 +42,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flipclock/0.7.7/flipclock.min.js" integrity="sha512-Vy4ftjkcjamOFPNSK7Osn8kYhF7XDcLWPiRvSmdimNscisyC8MkhDlAHSt+psegxRzd/q6wUC/VFhQZ6P2hBOw==" crossorigin="anonymous"></script>
 <?php
 $this->load->view('panelVereador/js/v_js_001-solicita_voto', $myuser);
+$this->load->view('panelVereador/js/v_js_002-perfil', $myuser);
 $this->load->view('panelVereador/modal/m_001-modal-tempo', $myuser);
+$this->load->view('panelVereador/modal/m_002-dados-perfil', $myuser);
 
 ?>
 

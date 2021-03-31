@@ -45,7 +45,7 @@
                  </a>
              </li>
              <li class="nav-item">
-                 <a href="pages/widgets.html" class="nav-link">
+                 <a href="#" class="nav-link" data-toggle="modal" data-target="#modalMeuPerfil">
                      <i class="nav-icon fas fa-user"></i>
                      <p>
                          Perfíl

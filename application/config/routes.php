@@ -88,6 +88,7 @@ $route['solicita-participacao-votacao/(:num)'] = 'vereador/SolicitacaoController
 $route['solicita-status-solicitacao-dia/(:num)'] = 'vereador/SolicitacaoController/tipoStatus/$1';
 $route['view-voto-recebe/(:num)'] = 'vereador/SolicitacaoController/showMeuVoto/$1';
 $route['finaliza_voto_por_contagem_vereador'] = 'vereador/SolicitacaoController/finalizaVotoPorContagemVereador';
+$route['atualiza-dados-perfil-vereador-pessola/(:num)'] = 'vereador/PerfilController/index/$1';
 /**----faz voto */
 
 /**tela de votação */
