@@ -44,6 +44,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                         <div class="card">
                             <div class="card-header">
                                 <h5 class="card-title"><i class="fa fa-laptop-house"></i> Gestão de participação</h5>
+                                <p id="demo"></p>
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body" style="display: block;">
@@ -73,7 +74,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                             <div class="card-header p-0 pt-1">
                                 <ul class="nav nav-tabs" id="custom-tabs-two-tab" role="tablist">
                                     <li class="pt-2 px-3">
-                                        <h3 class="card-title"><i class="fa fa-chart-line"></i> Votos e resultados</h3>
+                                        <h3 class="card-title"><i class="fa fa-chart-line"></i> Votação</h3>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link active" id="custom-tabs-two-home-tab" data-toggle="pill" href="#custom-tabs-two-home" role="tab" aria-controls="custom-tabs-two-home" aria-selected="true"><i class="fas fa-folder-open"></i>&nbsp;Projetos</a>

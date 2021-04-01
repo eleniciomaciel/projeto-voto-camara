@@ -17,6 +17,7 @@
         }, 6000);
 
 
+
         $(document).on('click', '.viewSolicitaVoto', function() {
             var id_my_solicity = $(this).attr("id");
             var v_instituicao = $('#v_instituicao').val();
@@ -130,6 +131,9 @@
             })
         }
 
+
+
+
         function listaProjetosButton() {
             $.ajax({
                 url: "<?php echo site_url('view-btn_projetos'); ?>",
@@ -140,10 +144,10 @@
             })
         }
 
-        $(document).on('click', '.myUserClick', function(){  
-           let id = $(this).attr("data-clickuser");  
-          
-           $.ajax({
+        $(document).on('click', '.myUserClick', function() {
+            let id = $(this).attr("data-clickuser");
+
+            $.ajax({
                 url: "<?php echo site_url('view-carrega_painel_voto/'); ?>" + id,
                 method: "GET",
                 beforeSend: function() {
@@ -158,12 +162,12 @@
                     $('.result_painel_realiza_voto').html(data);
                 }
             })
-      });  
+        });
 
         /**preenche dados do voto */
         function nyFunctioId(id) {
-            
-           
+
+
         }
 
         /**mostra resultados dos votos */
@@ -251,7 +255,7 @@
 
         /**view documentação */
         $(document).on('click', '.viewArquivoTrabalho', function(event) {
-            event.preventDefault();  
+            event.preventDefault();
             var user_id = $(this).attr("id");
 
 
@@ -267,50 +271,63 @@
             })
         });
 
+        // setTimeout(() => {
+
+        //     // Add new element to page after time delay
+        //     document.body.appendChild(dynamicHeading);
+
+        //     // Re-run Initialising Function
+        //     initialiseParseableElements();
+
+        // }, 3000);
+
     });
 </script>
 
 <script>
-// function myTime(x, b) {
-//     var clock;
-//     clock = $('.clock').FlipClock({
-//         clockFace: 'HourCounter',
-//         days: false,
-//         hours: false,
-//         language: 'portuguese',
-//         autoStart: false,
-//         callbacks: {
-//             stop: function() {
-//                 Swal.fire({
-//                     position: 'top-end',
-//                     icon: 'success',
-//                     title: 'Seu tempo terminou, obrigado pelo seu voto.',
-//                     showConfirmButton: false,
-//                     timer: 2000
-//                 }).then(function() {
-//                         location.reload();
-//                     });
-//                 stopVoto(b);
-//             }
-//         }
-//     });
-//     clock.setTime(--x); // tempo em segundos
-//     clock.setCountdown(true);
-//     clock.start();
-// }
+    // function myTime(x, b) {
+    //     var clock;
+    //     clock = $('.clock').FlipClock({
+    //         clockFace: 'HourCounter',
+    //         days: false,
+    //         hours: false,
+    //         language: 'portuguese',
+    //         autoStart: false,
+    //         callbacks: {
+    //             stop: function() {
+    //                 Swal.fire({
+    //                     position: 'top-end',
+    //                     icon: 'success',
+    //                     title: 'Seu tempo terminou, obrigado pelo seu voto.',
+    //                     showConfirmButton: false,
+    //                     timer: 2000
+    //                 }).then(function() {
+    //                         location.reload();
+    //                     });
+    //                 stopVoto(b);
+    //             }
+    //         }
+    //     });
+    //     clock.setTime(--x); // tempo em segundos
+    //     clock.setCountdown(true);
+    //     clock.start();
+    // }
 
-// function stopVoto(b) {
-    
-//     $.ajax({
-//         url: "<?php echo site_url('finaliza_voto_por_contagem_vereador');?>",
-//         method: "POST",
-//         data : {
-//                 <?=$this->security->get_csrf_token_name();?> : "<?=$this->security->get_csrf_hash();?>" ,
-//                 b:b
-//                 } ,
-//         success: function(data) {
-            
-//         }
-//     });
-// }
+    // function stopVoto(b) {
+
+    //     $.ajax({
+    //         url: "<?php echo site_url('finaliza_voto_por_contagem_vereador'); ?>",
+    //         method: "POST",
+    //         data : {
+    //                 <?= $this->security->get_csrf_token_name(); ?> : "<?= $this->security->get_csrf_hash(); ?>" ,
+    //                 b:b
+    //                 } ,
+    //         success: function(data) {
+
+    //         }
+    //     });
+    // }
+</script>
+<script>
+
 </script>

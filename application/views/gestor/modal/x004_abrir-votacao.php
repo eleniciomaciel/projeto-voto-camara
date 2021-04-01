@@ -154,9 +154,10 @@
 
                             <div class="card-tools">
                                 <div class="input-group input-group-sm" style="width: 450px;">
-                                    <input type="time" name="time_voto_grupo_all_g" class="form-control float-right" required>
+                                    <input type="time" title="Adicionar tempo de minutos e segundos. Ex.: 20 minutos e 05 segundos." name="time_voto_grupo_all_g" class="form-control float-right" required>
                                     <input type="hidden" name="tempo_voto_liberado" value="1">
                                     <input type="hidden" name="tipo_voto_grupo" value="Grupo">
+
                                     <div class="input-group-append">
                                         <button type="submit" class="btn_cls_aviso_tempo btn btn-dark" id="btn_id_vt_grupo">
                                             Adicionar tempo
@@ -165,6 +166,7 @@
                                             <i class="fas fa-check"></i> Marcar com concluído
                                         </button>
                                     </div>
+
                                 </div>
                             </div>
 
@@ -283,7 +285,7 @@
                                 <button type="submit" class="btn_voto_time_ btn btn-danger" id="btn_id_vt_"><i class="fa fa-hourglass-half"></i> Click aqui</button>
                             </div>
                             <!-- /btn-group -->
-                            <input type="time" class="form-control" name="timeVotoMinus" id="timeVotoMinus">
+                            <input type="time" class="form-control" title="Adicionar tempo de minutos e segundos. Ex.: 20 minutos e 05 segundos." name="timeVotoMinus" id="timeVotoMinus">
                         </div>
 
                         <input type="hidden" name="id_pedido_voto" id="id_pedido_voto">

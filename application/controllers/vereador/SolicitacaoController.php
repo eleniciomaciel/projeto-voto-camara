@@ -111,7 +111,11 @@ class SolicitacaoController extends CI_Controller
                     $output .= '
                         <button class="pulse-button btn btn-app bg-danger btn-block">
                             <h5> <i class="fas fa-inbox"></i>&nbsp;Você tem voto para concluir</h5>
-                        </button>';
+                            <audio controls autoplay style="display:none">
+                                <source src="https://www.soundjay.com/button/sounds/beep-01a.mp3" type="audio/mpeg">
+                            </audio>
+                        </button>
+                        ';
                
             } else {
                 $output .= '

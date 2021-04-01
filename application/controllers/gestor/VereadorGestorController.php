@@ -373,13 +373,17 @@ class VereadorGestorController extends CI_Controller
             echo json_encode(['error' => $errors]);
         } else {
             $data = array();
+
+            $tempo = $this->input->post('time_voto_grupo_all_g');
+            $tempo_novo = '00:'.$tempo;
+
             for ($i = 0; $i < count($this->input->post('all_veradores_grupo')); $i++) {
                 $data[] = array(
                     'vt_fk_vereador' => $this->input->post('all_veradores_grupo')[$i],
                     'vt_fk_camera' => $this->input->post('id_voto_camara_g'),
                     'vt_fk_sessao' => $this->input->post('id_voto_sessao_g'),
                     'vt_fk_projeto' => $this->input->post('id_voto_projeto_g'),
-                    'vt_time_voto' => $this->input->post('time_voto_grupo_all_g'),
+                    'vt_time_voto' =>  $tempo_novo,
                     'vt_liberar_voto' => $this->input->post('tempo_voto_liberado'),
                     'vt_tipo_voto' => $this->input->post('tipo_voto_grupo'),
                     'vt_tipo_status' => '2',

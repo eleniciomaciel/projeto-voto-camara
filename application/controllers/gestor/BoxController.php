@@ -22,6 +22,17 @@ class BoxController extends CI_Controller {
         echo $row->total_projetosDay;
     }
 
+    public function somaProjetosVotasHoje(int $id)
+    {
+        $dataDia = date("Y-m-d");
+        $query = $this->db->select('*,  COUNT(distinct vt_fk_projeto) AS total_projetosDay2')
+                            ->where('vt_fk_camera ', $id)
+                            ->where('vt_data_registro >=', $dataDia)
+                            ->get('tbl_voto_projeto_sessao');
+        $row = $query->row();
+        echo $row->total_projetosDay2;
+    }
+
     public function sumDayPresetsVereadores(int $id)
     {
         $dataDia = date("Y-m-d");

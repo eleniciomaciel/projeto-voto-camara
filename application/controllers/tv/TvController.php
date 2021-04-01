@@ -164,11 +164,13 @@ class TvController extends CI_Controller
         }else {
 
                     //resultado por projetos
-        $data_soma = $this->db->select('*')
+        $data_soma = $this->db->select('* , proj1.us_nome AS nome_autor_projeto1, us_vt.us_nome AS votantes, us_vt.us_my_profile AS file_new_vt')
                         ->from('tbl_voto_projeto_sessao')
                         ->join('tbl_sessao_camara', 'tbl_sessao_camara.ss_id = tbl_voto_projeto_sessao.vt_fk_sessao')
                         ->join('tbl_projetos', 'tbl_projetos.sess_id = tbl_voto_projeto_sessao.vt_fk_projeto')
-                        ->join('tbl_usuarios', 'tbl_usuarios.us_id = tbl_voto_projeto_sessao.vt_fk_vereador')
+                        ->join('tbl_usuarios as us_vt', 'us_vt.us_id = tbl_voto_projeto_sessao.vt_fk_vereador')
+                        //->join('tbl_usuarios as vt', 'vt.us_id = tbl_projetos.us_fk_autor')
+                        ->join('tbl_usuarios as proj1', 'proj1.us_id = tbl_projetos.us_fk_autor')
                         ->where('vt_fk_camera', $id)
                         ->where('vt_data_registro >=', $dataConsulta)
                         ->where('vt_tipo_status !=', '0')
@@ -316,6 +318,45 @@ class TvController extends CI_Controller
                                     <small class="text-center">PROJETO</small>
                                     <h2 class="text-danger">'.$row_soma->sess_titulo_projeto .'</h2>
                                     
+
+
+                                    <div class="card-footer">
+                                        <div class="row">
+                                            <div class="col-sm-4 border-right">
+                                                <div class="description-block">
+                                                <h5 class="description-header">SESSÃO DE VOTAÇÃO:</h5>
+                                                <span class="description-text">'.$row_soma->ss_nome.'</span>
+                                                </div>
+                                                <!-- /.description-block -->
+                                            </div>
+
+                                            <!-- /.col -->
+                                            <div class="col-sm-4 border-right">
+                                                <div class="description-block">
+                                                <h5 class="description-header">PROJETO DE VOTAÇÃO DO(A) VEREADOR(A):</h5>
+                                                <span class="description-text">'.$row_soma->nome_autor_projeto1.'</span>
+                                                </div>
+                                                <!-- /.description-block -->
+                                            </div>
+
+                                            <!-- /.col -->
+                                            <div class="col-sm-4">
+                                                <div class="description-block">
+                                                <h5 class="description-header">Nº DO PROJETO EM VOTAÇÃO:</h5>
+                                                <span class="description-text">'.$row_soma->sess_numero_projeto .'</span>
+                                                </div>
+                                                <!-- /.description-block -->
+                                            </div>
+
+                                        <!-- /.col -->
+                                        </div>
+                                        <!-- /.row -->
+                                    </div>
+
+
+
+
+
                                 </div>
                                 <!-- /.card-body -->
                             </div>
@@ -337,6 +378,39 @@ class TvController extends CI_Controller
                                     <small class="text-center">PROJETO</small>
                                     <h2 class="text-danger">'.$row_soma->sess_titulo_projeto .'</h2>
                                     
+                                    <div class="card-footer">
+                                    <div class="row">
+                                        <div class="col-sm-4 border-right">
+                                            <div class="description-block">
+                                            <h5 class="description-header">SESSÃO DE VOTAÇÃO:</h5>
+                                            <span class="description-text">'.$row_soma->ss_nome.'</span>
+                                            </div>
+                                            <!-- /.description-block -->
+                                        </div>
+
+                                        <!-- /.col -->
+                                        <div class="col-sm-4 border-right">
+                                            <div class="description-block">
+                                            <h5 class="description-header">PROJETO DE VOTAÇÃO DO(A) VEREADOR(A):</h5>
+                                            <span class="description-text">'.$row_soma->nome_autor_projeto1.'</span>
+                                            </div>
+                                            <!-- /.description-block -->
+                                        </div>
+
+                                        <!-- /.col -->
+                                        <div class="col-sm-4">
+                                            <div class="description-block">
+                                            <h5 class="description-header">Nº DO PROJETO EM VOTAÇÃO:</h5>
+                                            <span class="description-text">'.$row_soma->sess_numero_projeto .'</span>
+                                            </div>
+                                            <!-- /.description-block -->
+                                        </div>
+
+                                    <!-- /.col -->
+                                    </div>
+                                    <!-- /.row -->
+                                </div>
+
                                 </div>
                                 <!-- /.card-body -->
                             </div>
@@ -358,6 +432,39 @@ class TvController extends CI_Controller
                                     <small class="text-center">PROJETO</small>
                                     <h2 class="text-danger">'.$row_soma->sess_titulo_projeto .'</h2>
                                     
+                                    <div class="card-footer">
+                                    <div class="row">
+                                        <div class="col-sm-4 border-right">
+                                            <div class="description-block">
+                                            <h5 class="description-header">SESSÃO DE VOTAÇÃO:</h5>
+                                            <span class="description-text">'.$row_soma->ss_nome.'</span>
+                                            </div>
+                                            <!-- /.description-block -->
+                                        </div>
+
+                                        <!-- /.col -->
+                                        <div class="col-sm-4 border-right">
+                                            <div class="description-block">
+                                            <h5 class="description-header">PROJETO DE VOTAÇÃO DO(A) VEREADOR(A):</h5>
+                                            <span class="description-text">'.$row_soma->nome_autor_projeto1.'</span>
+                                            </div>
+                                            <!-- /.description-block -->
+                                        </div>
+
+                                        <!-- /.col -->
+                                        <div class="col-sm-4">
+                                            <div class="description-block">
+                                            <h5 class="description-header">Nº DO PROJETO EM VOTAÇÃO:</h5>
+                                            <span class="description-text">'.$row_soma->sess_numero_projeto .'</span>
+                                            </div>
+                                            <!-- /.description-block -->
+                                        </div>
+
+                                    <!-- /.col -->
+                                    </div>
+                                    <!-- /.row -->
+                                </div>
+
                                 </div>
                                 <!-- /.card-body -->
                             </div>
@@ -405,10 +512,10 @@ class TvController extends CI_Controller
                                             <td>#</td>
                                             <td>'.$dd_verador->sess_titulo_projeto.'</td>
                                             <td>
-                                                <img alt="Avatar" class="table-avatar" src="'.base_url().'assets/admin/upload/'.$dd_verador->us_my_profile.'">
+                                                <img alt="Avatar" class="table-avatar" src="'.base_url().'assets/admin/upload/'.$dd_verador->file_new_vt.'">
                                             </td>
                                             <td class="project_progress">
-                                                '.$dd_verador->us_nome.'
+                                                '.$dd_verador->votantes.'
                                             </td>
                                             <td class="project-state">
                                                 <span class="badge badge-info">Concluído</span>

@@ -35,7 +35,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 <!-- AdminLTE for demo purposes -->
 <script src="<?= base_url() ?>assets/admin/dist/js/demo.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="<?= base_url() ?>assets/admin/dist/js/pages/dashboard.js"></script>
+<script src="<?= base_url() ?>assets/admin/dist/js/beep.js"></script>
 <!-- SweetAlert2 -->
 <script src="<?= base_url() ?>assets/admin/plugins/sweetalert2/sweetalert2.min.js"></script>
 
@@ -47,7 +47,6 @@ $this->load->view('panelVereador/modal/m_001-modal-tempo', $myuser);
 $this->load->view('panelVereador/modal/m_002-dados-perfil', $myuser);
 
 ?>
-
 </body>
 
 </html>

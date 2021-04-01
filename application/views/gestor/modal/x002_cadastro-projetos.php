@@ -115,7 +115,7 @@
 
                             <div class="form-group col-md-12">
                                 <label for="gestorDescriptionSession">Descrição</label>
-                                <textarea class="form-control" name="gestorDescriptionSession" id="gestorDescriptionSession" rows="3" placeholder="Digite aqui..."></textarea>
+                                <textarea class="form-control" name="gestorDescriptionSession" id="gestorDescriptionSession" rows="3" placeholder="Digite aqui...">Digite aqui...</textarea>
                                 <span id="gestorDescriptionSession_error" class="text-danger"></span>
                             </div>
                         </div>

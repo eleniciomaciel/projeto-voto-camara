@@ -93,7 +93,7 @@
 
                         <div class="form-group">
                             <label for="sp_descriptionSessao">Observação:</label>
-                            <textarea class="form-control" name="sp_description" id="sp_description" rows="3" placeholder="Digite aqui..."></textarea>
+                            <textarea class="form-control" name="sp_description" id="sp_description" rows="6" placeholder="Digite aqui..."></textarea>
                             <span id="sp_descriptionSessao_error" class="text-danger"></span>
                         </div>
 

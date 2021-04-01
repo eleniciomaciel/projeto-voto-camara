@@ -11,6 +11,7 @@
             carregaTotalProjetos(idMyGestorInstituicao);
             carregaTotalVereadoresPresents(idMyGestorInstituicao);
             carregaTotalFaltantes(idMyGestorInstituicao);
+            carregaTotalProjetosVotadosHoje(idMyGestorInstituicao);
         }, 3000);
 
 
@@ -753,6 +754,12 @@
         function carregaTotalFaltantes(id) {
             $.get("<?php echo base_url('gestor/BoxController/sumDayFaltantesVereadores/'); ?>" + id, function(data) {
                 $(".result_total_faltantes_vereadores_day").html(data);
+            });
+        }
+
+        function carregaTotalProjetosVotadosHoje(id) {
+            $.get("<?php echo base_url('gestor/BoxController/somaProjetosVotasHoje/'); ?>" + id, function(data) {
+                $(".result_total_projetos_votados_hoje").html(data);
             });
         }
 
