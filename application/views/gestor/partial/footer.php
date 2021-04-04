@@ -85,6 +85,7 @@ $this->load->view('gestor/modal/x007_voto_mesa', $myuser);
 $this->load->view('gestor/modal/x008-agenda-de-votacao', $myuser);
 $this->load->view('gestor/modal/x009_historico-sessao');
 $this->load->view('gestor/modal/x010_votos-projetos');
+$this->load->view('gestor/modal/x011_url', $myuser);
 
 /**js */
 $this->load->view('gestor/js/jsx_001-perfil');
@@ -95,6 +96,7 @@ $this->load->view('gestor/js/jsx_005-sessao', $myuser);
 $this->load->view('gestor/js/jsx_007_voto-mesa', $myuser);
 $this->load->view('gestor/js/jsx_008-fullcalendar', $myuser);
 $this->load->view('gestor/js/jsx_010-historicos-projetos-votos', $myuser);
+$this->load->view('gestor/js/jsx_11-url', $myuser);
 
 ?>
 

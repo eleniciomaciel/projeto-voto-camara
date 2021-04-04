@@ -92,18 +92,27 @@
                     </a>
                     <ul class="nav nav-treeview" style="display: none;">
                         <li class="nav-item">
-                            <a href="#" class="nav-link"  data-toggle="modal" data-target="#right_modal_historicos">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#right_modal_historicos">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Histórico das sessões</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link"  data-toggle="modal" data-target="#right_modal_historicos_votos">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#right_modal_historicos_votos">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Históricos dos votos</p>
                             </a>
                         </li>
                     </ul>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#" class="nav-link" data-toggle="modal" data-target="#modal_url">
+                        <i class="nav-icon fas fa-laptop-code"></i>
+                        <p>
+                            Gerar url
+                        </p>
+                    </a>
                 </li>
 
                 <li class="nav-item">

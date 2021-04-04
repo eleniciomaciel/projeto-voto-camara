@@ -6,6 +6,7 @@
         selectSessaoAllPainel(idMySSUser);
         selectSessaoIDpainel(idMySSUser);
         selectSessaoParaAddPedido(idMySSUser);
+        selectSessaoUrl(idMySSUser);
 
         var dataTableSessaoAll = $('#item_all_sessao').DataTable({
             "language": { //Altera o idioma do DataTable para o português do Brasil
@@ -22,7 +23,7 @@
         });
 
         /**lista sessão históricos */
-         $('#lista_historico_sessao_tbl').DataTable({
+        $('#lista_historico_sessao_tbl').DataTable({
             "language": { //Altera o idioma do DataTable para o português do Brasil
                 "url": "//cdn.datatables.net/plug-ins/1.10.12/i18n/Portuguese-Brasil.json"
             },
@@ -30,7 +31,7 @@
                 [0, "desc"]
             ],
             "ajax": {
-                url:"<?php echo site_url('lista-historico-sessao/')?>" + idMySSUser,  
+                url: "<?php echo site_url('lista-historico-sessao/') ?>" + idMySSUser,
                 type: 'GET'
             },
         });
@@ -95,6 +96,7 @@
                         dataTableSessaoAll.ajax.reload();
                         selectSessaoAllPainel(idMySSUser);
                         selectSessaoParaAddPedido(idMySSUser);
+                        selectSessaoUrl(idMySSUser);
                     }
                     $('#id_add_sp_sessao').attr('disabled', false);
                     $('.btn_cls_add_sp_sessao').html('<i class="fa fa-fw fa-lg fa-save"></i>&nbsp;Salvar');
@@ -179,6 +181,7 @@
                         $('#ss_up_desc_error').html('');
                         dataTableSessaoAll.ajax.reload();
                         selectSessaoParaAddPedido(idMySSUser);
+                        selectSessaoUrl(idMySSUser);
                     }
                     $('#id_up_sp_sessao').attr('disabled', false);
                     $('.btn_cls_up_sp_sessao').html('<i class="fa fa-sync-alt"></i> Alterar');
@@ -249,6 +252,24 @@
                 }
             });
         }
+
+        /**sessao do painel de url */
+        function selectSessaoUrl(idMySSUser) {
+
+            $.ajax({
+                url: "<?= site_url('select-sessao/') ?>" + idMySSUser,
+                type: "GET",
+                dataType: "json",
+                success: function(data) {
+                    $('select[name="ss_up_stat_url"]').empty();
+                    $('select[name="ss_up_stat_url"]').append('<option selected disabled>Selecione aqui...</option>');
+                    $.each(data, function(key, value) {
+                        $('select[name="ss_up_stat_url"]').append('<option value="' + value.ss_id + '">' + value.ss_nome + '</option>');
+                    });
+                }
+            });
+        }
+
 
         /**altera status do verador */
         $(document).on('submit', '#formUpStatus_xp', function(event) {

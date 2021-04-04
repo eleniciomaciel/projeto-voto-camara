@@ -111,3 +111,9 @@ $route['lista-historico-sessao/(:num)'] = 'gestor/HistoricoSessaoController/inde
 $route['hostoricos-votos-projetos-table/(:num)'] = 'gestor/ConsultaProjetosVotosController/index/$1';
 $route['lista-historicos-votos-gestor/(:num)'] = 'gestor/HistoricoSessaoController/listaSituacaoVotacao/$1';
 $route['histórico-de-voto-pdf/(:num)'] = 'gestor/HistoricoSessaoController/visualizaDadosVotosPdf/$1';
+
+/**url dos gestores */
+$route['consulta-resultados-voto'] = 'gestor/UrlController/index';
+$route['lista-url/(:num)'] = 'gestor/UrlController/get_url/$1';
+$route['consulta-resultados-voto_acesso/(:num)/(:num)/([a-zA-Z0-9]+)'] = 'gestor/UrlController/resultVotes/$1/$2/$3';
+$route['projetos_url/(:num)'] = 'gestor/UrlController/listTableProjects/$1';
