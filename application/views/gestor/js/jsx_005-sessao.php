@@ -257,7 +257,7 @@
         function selectSessaoUrl(idMySSUser) {
 
             $.ajax({
-                url: "<?= site_url('select-sessao/') ?>" + idMySSUser,
+                url: "<?= site_url('select_sessao_url/') ?>" + idMySSUser,
                 type: "GET",
                 dataType: "json",
                 success: function(data) {

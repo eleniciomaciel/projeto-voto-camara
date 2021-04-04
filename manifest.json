@@ -2,7 +2,7 @@
   "name": "APP C8 VOTO",
   "short_name": "APP C8 VOTO",
   "description": "Sistema de votação C8 Sistemas Tecnology",
-  "start_url": "http://camara.c8sistemas.com.br",
+  "start_url": "http://voto.romastur.com/",
   "scope": "App C8 Voto",
   "display": "fullscreen",
   "orientation": "natural",

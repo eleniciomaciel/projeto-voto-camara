@@ -84,7 +84,6 @@ class UrlController extends CI_Controller
     /**consulta projetos */
     public function listTableProjects($query)
     {
-        sleep(5);
         $output = '';
  
         $data = $this->db->select('*')
@@ -138,6 +137,22 @@ class UrlController extends CI_Controller
                         </table>
                     </div>';
         echo $output;
+    }
+
+    public function selectDadosSessaoCamaraUrl(int $id)
+    {
+        $data = $this->db->select('*')
+        ->from('tbl_voto_projeto_sessao')
+        ->join('tbl_sessao_camara', 'tbl_sessao_camara.ss_id = tbl_voto_projeto_sessao.vt_fk_sessao ')
+        ->join('tbl_projetos', 'tbl_projetos.sess_id = tbl_voto_projeto_sessao.vt_fk_projeto')
+        ->where('ss_fk_camera', $id)
+        ->where('ss_status', '0')
+        ->where('ss_data_sessao >=', date('Y-m-d'))
+        ->group_by('vt_fk_sessao')
+        ->get()->result();
+
+        //$result = $this->db->get_where('tbl_sessao_camara', array('ss_fk_camera' => $id, 'ss_status'=>'0','ss_data_sessao >='=> date('Y-m-d')))->result();
+        echo json_encode($data);
     }
 }
 

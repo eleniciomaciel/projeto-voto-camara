@@ -117,3 +117,4 @@ $route['consulta-resultados-voto'] = 'gestor/UrlController/index';
 $route['lista-url/(:num)'] = 'gestor/UrlController/get_url/$1';
 $route['consulta-resultados-voto_acesso/(:num)/(:num)/([a-zA-Z0-9]+)'] = 'gestor/UrlController/resultVotes/$1/$2/$3';
 $route['projetos_url/(:num)'] = 'gestor/UrlController/listTableProjects/$1';
+$route['select_sessao_url/(:num)'] = 'gestor/UrlController/selectDadosSessaoCamaraUrl/$1';
