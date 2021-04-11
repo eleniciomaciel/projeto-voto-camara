@@ -146,8 +146,8 @@ class UrlController extends CI_Controller
         ->join('tbl_sessao_camara', 'tbl_sessao_camara.ss_id = tbl_voto_projeto_sessao.vt_fk_sessao ')
         ->join('tbl_projetos', 'tbl_projetos.sess_id = tbl_voto_projeto_sessao.vt_fk_projeto')
         ->where('ss_fk_camera', $id)
-        ->where('ss_status', '0')
-        ->where('ss_data_sessao >=', date('Y-m-d'))
+        //->where('ss_status', '0')
+        ///->where('ss_data_sessao >=', date('Y-m-d'))
         ->group_by('vt_fk_sessao')
         ->get()->result();
 

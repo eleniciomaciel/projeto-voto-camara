@@ -603,7 +603,7 @@
                             showConfirmButton: false,
                             timer: 2000
                         });
-                        $('#modalVotaçãoGrupoVereadoresProjeto').modal('hide');
+                        //$('#modalVotaçãoGrupoVereadoresProjeto').modal('hide');
                         $('#btn_id_vt_grupo').html('Adicionar tempo');
                         $('#showMeuTimeGrupo').modal('show');
                         $(".btn_cls_aviso_tempo").prop("disabled", false);

@@ -82,7 +82,7 @@
             <div class="resume-section-content">
                 <h1 class="mb-0 text-center">
                     Ambiente de consulta
-                    <span class="text-primary">púlblica</span>
+                    <span class="text-primary">pulblica</span>
                 </h1>
                 <div class="subheading mb-5">
                     <p class="text-center"><?php echo $dados[0]->ist_nome ?></p>
